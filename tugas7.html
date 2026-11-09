@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MabarZone - ITTS</title>
+    <link rel="stylesheet" href="tugas7.css">
+    <!-- Menggunakan font Inter sesuai laporan -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- HALAMAN 1: HOME FEED -->
+        <main id="home-view" class="view active">
+            <header class="app-header">
+                <h1 class="heading-1">MabarZone</h1>
+                <input type="text" class="search-bar" placeholder="Cari game atau lokasi...">
+                <div class="filter-chips">
+                    <button class="chip active">Semua</button>
+                    <button class="chip">Mobile Legends</button>
+                    <button class="chip">Valorant</button>
+                    <button class="chip">Chess</button>
+                </div>
+            </header>
+
+            <section class="lobby-list">
+                <!-- Kartu Ajakan 1 -->
+                <article class="lobby-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Push Rank Mythic MLBB</h2>
+                        <span class="status-badge status-green">Slot Tersedia (Butuh 1)</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="body-text">📍 Kantin Utama ITTS</p>
+                        <p class="body-text">⏰ 13:00 - Selesai</p>
+                        <p class="caption-text text-neutral">Host: Fajar (TI 2024)</p>
+                    </div>
+                    <button class="cta-btn full-width" onclick="alert('Gabung ke grup WhatsApp/Lobby?')">Gabung ke Lobby / Chat</button>
+                </article>
+
+                <!-- Kartu Ajakan 2 -->
+                <article class="lobby-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Mabar Valorant Santai</h2>
+                        <span class="status-badge status-amber">Hampir Penuh (Butuh 1)</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="body-text">📍 Lab Fasilkom</p>
+                        <p class="body-text">⏰ 15:00 - 17:00</p>
+                        <p class="caption-text text-neutral">Host: Bima (SI 2023)</p>
+                    </div>
+                    <button class="cta-btn full-width" onclick="alert('Gabung ke grup Discord?')">Gabung ke Lobby / Chat</button>
+                </article>
+            </section>
+
+            <!-- Floating Action Button (+) -->
+            <button id="fab-add" class="fab-btn">+</button>
+        </main>
+
+        <!-- HALAMAN 2: CREATE POST FORM -->
+        <main id="create-view" class="view hidden">
+            <header class="app-header header-with-back">
+                <button id="btn-back" class="icon-btn">&larr;</button>
+                <h1 class="heading-1">Buat Ajakan Mabar</h1>
+            </header>
+
+            <section class="form-section">
+                <form id="create-post-form">
+                    <div class="form-group">
+                        <label class="label-input" for="judul">Judul Kegiatan</label>
+                        <input type="text" id="judul" required placeholder="Misal: Push Rank Santai">
+                    </div>
+                    <div class="form-group">
+                        <label class="label-input" for="kategori">Kategori Game</label>
+                        <select id="kategori" required>
+                            <option value="mlbb">Mobile Legends</option>
+                            <option value="valorant">Valorant</option>
+                            <option value="chess">Chess / Papan</option>
+                            <option value="lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-input" for="lokasi">Lokasi Kampus (Titik Kumpul)</label>
+                        <input type="text" id="lokasi" required placeholder="Misal: Ruang Komunal">
+                    </div>
+                    <div class="form-group">
+                        <label class="label-input" for="waktu">Jam Mulai</label>
+                        <input type="time" id="waktu" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-input" for="link">Link Kontak (WhatsApp/Discord)</label>
+                        <input type="url" id="link" required placeholder="https://wa.me/...">
+                    </div>
+                    <button type="submit" class="cta-btn full-width mt-24">Publikasi Ajakan</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="tugas7scrip.js"></script>
+</body>
+</html>

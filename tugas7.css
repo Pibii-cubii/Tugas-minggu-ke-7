@@ -1,0 +1,197 @@
+/* Color Palette & Spatial System (8pt) Berdasarkan Laporan UI/UX MabarZone */
+:root {
+    --primary-blue: #1877F2;      /* Tombol utama, indikator aktif */
+    --surface-gray: #F0F2F5;      /* Latar belakang aplikasi */
+    --text-dark: #050505;         /* Teks utama */
+    --text-neutral: #65676B;      /* Teks sekunder */
+    --status-green: #31A24C;      /* Slot tersedia */
+    --status-amber: #F7B928;      /* Slot hampir penuh */
+    --white: #FFFFFF;
+    
+    /* 8pt Spatial System */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+}
+
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif; /* Tipografi modern sesuai spesifikasi */
+}
+
+body {
+    background-color: #e4e6eb; /* Warna luar untuk simulasi web */
+    display: flex;
+    justify-content: center;
+    color: var(--text-dark);
+}
+
+/* Mobile-First Container */
+.app-container {
+    width: 100%;
+    max-width: 480px; /* Simulasi ukuran layar smartphone */
+    min-height: 100vh;
+    background-color: var(--surface-gray);
+    position: relative;
+    overflow-x: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* View Switcher (Hierarki Datar) */
+.view { display: none; }
+.view.active { display: block; }
+
+/* Tipografi */
+.heading-1 { font-size: 20px; font-weight: 600; }
+.card-title { font-size: 16px; font-weight: 700; margin-bottom: var(--space-1); }
+.body-text { font-size: 14px; font-weight: 400; margin-bottom: 4px; }
+.label-input { font-size: 14px; font-weight: 500; display: block; margin-bottom: var(--space-1); }
+.caption-text { font-size: 12px; font-weight: 400; }
+.text-neutral { color: var(--text-neutral); }
+
+/* Header & Search */
+.app-header {
+    background-color: var(--white);
+    padding: var(--space-2);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-with-back {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px var(--space-2);
+    margin-top: var(--space-2);
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* Filter Chips Horizontal */
+.filter-chips {
+    display: flex;
+    gap: var(--space-1);
+    margin-top: var(--space-2);
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+.filter-chips::-webkit-scrollbar { display: none; }
+
+.chip {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background-color: var(--white);
+    color: var(--text-dark);
+    font-size: 14px;
+    white-space: nowrap;
+    cursor: pointer;
+    min-height: 44px; /* Area sentuh minimal 44x44px (Aksesibilitas WCAG) */
+}
+.chip.active {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-color: var(--primary-blue);
+}
+
+/* Lobby Cards */
+.lobby-list {
+    padding: var(--space-2);
+}
+
+.lobby-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: var(--space-2);
+    margin-bottom: var(--space-2);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.status-badge {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: var(--white);
+}
+.status-green { background-color: var(--status-green); }
+.status-amber { background-color: var(--status-amber); }
+
+.card-body {
+    margin: var(--space-1) 0 var(--space-2) 0;
+}
+
+/* Buttons & FAB (Hukum Fitts) */
+.cta-btn {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    min-height: 48px; /* Tinggi minimal 48dp */
+}
+.full-width { width: 100%; }
+.mt-24 { margin-top: var(--space-3); }
+
+.fab-btn {
+    position: fixed;
+    bottom: var(--space-3);
+    right: max(16px, calc(50% - 240px + 16px)); /* Terkunci di container 480px */
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    font-size: 28px;
+    box-shadow: 0 4px 10px rgba(24, 119, 242, 0.4);
+    cursor: pointer;
+    z-index: 20;
+}
+
+/* Forms */
+.form-section {
+    padding: var(--space-2);
+    background-color: var(--white);
+    min-height: calc(100vh - 60px);
+}
+
+.form-group {
+    margin-bottom: var(--space-2);
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px var(--space-2);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    min-height: 44px; /* Area sentuh sentuh form WCAG */
+}
